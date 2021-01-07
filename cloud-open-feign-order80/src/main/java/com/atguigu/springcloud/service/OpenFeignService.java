@@ -15,4 +15,6 @@ public interface OpenFeignService {
 
     @GetMapping(value = "/payment/getById/{id}")
     public CommonResult getById(@PathVariable("id") long id);
+    @GetMapping("payment/feign/timeout")
+    public String paymentFeignTimeOut();
 }
