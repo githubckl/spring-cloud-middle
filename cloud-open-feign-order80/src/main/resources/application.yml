@@ -1,0 +1,8 @@
+server:
+  port: 80
+eureka:
+  client:
+#    feign将消费者变成客户端,不再注册到微服务中心
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/  #集群版
