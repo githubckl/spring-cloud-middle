@@ -59,17 +59,24 @@ public class PaymentController {
         List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service");
         for (ServiceInstance s :
                 instances) {
-            log.info(s.getServiceId()+"\t"+s.getHost()+"\t"+s.getPort()+"\t"+s.getUri());
+            log.info(s.getServiceId() + "\t" + s.getHost() + "\t" + s.getPort() + "\t" + s.getUri());
         }
         return this.discoveryClient;
     }
+
     @GetMapping("/feign/timeout")
-    public String paymentFeignTimeOut(){
+    public String paymentFeignTimeOut() {
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return serverPort;
+    }
+
+    @GetMapping("/lb")
+    public String lb() {
+
         return serverPort;
     }
 }
